@@ -17,3 +17,5 @@ docker/**/Dockerfile
 .vscode
 packages/testing
 cypress
+*.env
+.env
