@@ -6,14 +6,15 @@ Native Python task runner for n8n
 
 Install:
 
-- [Python 3.13+](https://www.python.org/)
+- [Python 3.14+](https://www.python.org/)
 - [uv](https://github.com/astral-sh/uv)
 - [just](https://github.com/casey/just)
 
 Set up dependencies:
 
-```
-just sync
+```sh
+just sync # or
+just sync-all
 ```
 
 See `justfile` for available commands.

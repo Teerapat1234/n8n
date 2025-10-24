@@ -59,7 +59,9 @@ export interface FrontendSettings {
 	urlBaseEditor: string;
 	versionCli: string;
 	nodeJsVersion: string;
+	nodeEnv: string | undefined;
 	concurrency: number;
+	isNativePythonRunnerEnabled: boolean;
 	authCookie: {
 		secure: boolean;
 	};
@@ -79,6 +81,10 @@ export interface FrontendSettings {
 		autocapture: boolean;
 		disableSessionRecording: boolean;
 		debug: boolean;
+		proxy: string;
+	};
+	dataTables: {
+		maxSize: number;
 	};
 	personalizationSurveyEnabled: boolean;
 	defaultLocale: string;
@@ -123,9 +129,14 @@ export interface FrontendSettings {
 	unverifiedCommunityNodesEnabled: boolean;
 	aiAssistant: {
 		enabled: boolean;
+		setup: boolean;
 	};
 	askAi: {
 		enabled: boolean;
+	};
+	aiBuilder: {
+		enabled: boolean;
+		setup: boolean;
 	};
 	deployment: {
 		type: string;
@@ -154,11 +165,13 @@ export interface FrontendSettings {
 		advancedPermissions: boolean;
 		apiKeyScopes: boolean;
 		workflowDiffs: boolean;
+		provisioning: boolean;
 		projects: {
 			team: {
 				limit: number;
 			};
 		};
+		customRoles: boolean;
 	};
 	hideUsagePage: boolean;
 	license: {
@@ -196,9 +209,6 @@ export interface FrontendSettings {
 		blockFileAccessToN8nFiles: boolean;
 	};
 	easyAIWorkflowOnboarded: boolean;
-	partialExecution: {
-		version: 1 | 2;
-	};
 	evaluation: {
 		quota: number;
 	};
@@ -220,6 +230,14 @@ export type FrontendModuleSettings = {
 		summary: boolean;
 		dashboard: boolean;
 		dateRanges: InsightsDateRange[];
+	};
+
+	/**
+	 * Client settings for MCP module.
+	 */
+	mcp?: {
+		/** Whether MCP access is enabled in the instance. */
+		mcpAccessEnabled: boolean;
 	};
 };
 

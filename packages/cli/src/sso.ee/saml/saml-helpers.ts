@@ -79,7 +79,7 @@ export async function createUserFromSamlAttributes(attributes: SamlUserAttribute
 				email: attributes.email.toLowerCase(),
 				firstName: attributes.firstName,
 				lastName: attributes.lastName,
-				role: 'global:member',
+				role: { slug: 'global:member' },
 				// generates a password that is not used or known to the user
 				password: await Container.get(PasswordUtility).hash(randomPassword),
 			},
@@ -118,8 +118,14 @@ export async function updateUserFromSamlAttributes(
 	user.firstName = attributes.firstName;
 	user.lastName = attributes.lastName;
 	const resultUser = await Container.get(UserRepository).save(user, { transaction: false });
-	if (!resultUser) throw new AuthError('Could not create User');
-	return resultUser;
+	if (!resultUser) throw new AuthError('Could not update User');
+	const userWithRole = await Container.get(UserRepository).findOne({
+		where: { id: resultUser.id },
+		relations: ['role'],
+		transaction: false,
+	});
+	if (!userWithRole) throw new AuthError('Failed to fetch user!');
+	return userWithRole;
 }
 
 type GetMappedSamlReturn = {
@@ -144,12 +150,14 @@ export function getMappedSamlAttributesFromFlowResult(
 		const firstName = attributes[attributeMapping.firstName];
 		const lastName = attributes[attributeMapping.lastName];
 		const userPrincipalName = attributes[attributeMapping.userPrincipalName];
+		const n8nInstanceRole = attributes[attributeMapping.n8nInstanceRole];
 
 		result.attributes = {
 			email,
 			firstName,
 			lastName,
 			userPrincipalName,
+			n8nInstanceRole,
 		};
 		if (!email) result.missingAttributes.push(attributeMapping.email);
 		if (!userPrincipalName) result.missingAttributes.push(attributeMapping.userPrincipalName);
