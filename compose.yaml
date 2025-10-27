@@ -61,17 +61,24 @@ services:
       - automation_net
 
   n8n-reddit-api:
-    # You can optionally add an image tag here, which will be used
     image: reddit-api-image:latest 
-    # -----------------------------------------------------------
     container_name: n8n-reddit-api
     restart: unless-stopped
     volumes:
       # source: ./.env (The file path on the host, relative to this docker-compose file)
       # ro:true (Ensures the file is mounted read-only, preventing the container from modifying it)
-      - ./secrets.env:/etc/secrets/redditapi-secrets.env:ro
+      - ./secrets.env/redditapi-secrets.json:/secrets/redditapi-secrets.json:ro
     ports:
       - "2222:22" # Host port: 2222, Container port: 22
+    networks:
+      - automation_net
+  
+  n8n-scrapy-api:
+    image: scrapy-api-image:latest 
+    container_name: n8n-scrapy-api
+    restart: unless-stopped
+    ports:
+      - "2223:22" # Host port: 2222, Container port: 23
     networks:
       - automation_net
 
