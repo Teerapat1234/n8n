@@ -24,3 +24,4 @@ cypress
 *.env
 .env
 README.md
+prompts

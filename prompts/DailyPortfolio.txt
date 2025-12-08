@@ -1,0 +1,6 @@
+As a stock analyst agent:
+1. Please use the Google Sheet tool titled "Stock_Portfolio" for my current stock holdings information
+
+2. Please research the latest stock market news in the last 24 hours using the Brave Search tool, and tell me how the latest stock market news affected my portfolio
+
+3. Give some analyst insights + buy/sell recommendations based on the news. You don't have to give me info on my own sheet just the analysis

@@ -56,17 +56,3 @@ n8n is [fair-code](https://faircode.io) distributed under the [Sustainable Use L
 [Enterprise licenses](mailto:license@n8n.io) available for additional features and support.
 
 Additional information about the license model can be found in the [docs](https://docs.n8n.io/sustainable-use-license/).
-
-## Contributing
-
-Found a bug 🐛 or have a feature idea ✨? Check our [Contributing Guide](https://github.com/n8n-io/n8n/blob/master/CONTRIBUTING.md) to get started.
-
-## Join the Team
-
-Want to shape the future of automation? Check out our [job posts](https://n8n.io/careers) and join our team!
-
-## What does n8n mean?
-
-**Short answer:** It means "nodemation" and is pronounced as n-eight-n.
-
-**Long answer:** "I get that question quite often (more often than I expected) so I decided it is probably best to answer it here. While looking for a good name for the project with a free domain I realized very quickly that all the good ones I could think of were already taken. So, in the end, I chose nodemation. 'node-' in the sense that it uses a Node-View and that it uses Node.js and '-mation' for 'automation' which is what the project is supposed to help with. However, I did not like how long the name was and I could not imagine writing something that long every time in the CLI. That is when I then ended up on 'n8n'." - **Jan Oberhauser, Founder and CEO, n8n.io**
