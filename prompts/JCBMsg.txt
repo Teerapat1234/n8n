@@ -9,3 +9,9 @@ You are an AI agent specialized going through list of urls and summarize promoti
     "headline": "headline",
     "summary": "summary"
 }
+
+{
+    "model": "gemma3:4b",
+    "prompt": "# Overview Given query = <{{ $json.query }}> You are an AI agent specialized going through list of urls and summarize promotions. # Instructions 1. Look at user's question in query field and go through all the available list of urls in the urls field. 2. Go through the promotions in the urls and see which of them matches what the user wants based on the question in the query field and summarized. 3. Your answer must be a json with headline from each related urls and a short brief summary of the promotion for each of them. {headline: headline,summary: summary}",
+    "stream": false
+}
