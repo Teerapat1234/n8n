@@ -21,7 +21,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   n8n:
-    image: docker.n8n.io/n8nio/n8n
+    # image: docker.n8n.io/n8nio/n8n
+    image: docker.n8n.io/n8nio/n8n@sha256:72e962537379dcefeb63a01397a099576e2e89a365f5a75efb8a5ad5bc5cff6a
     restart: unless-stopped
     container_name: n8n
     tty: true
@@ -59,6 +60,18 @@ services:
       - ./local-files:/files
     networks:
       - automation_net
+
+  # cloudflared:
+  #   image: cloudflare/cloudflared:latest
+  #   container_name: cloudflared
+  #   restart: unless-stopped
+  #   command: tunnel run
+  #   environment:
+  #     - TUNNEL_TOKEN="YOUR TOKEN HERE"
+  #   networks:
+  #     - automation_net
+  #   depends_on:
+  #     - n8n
 
   n8n-reddit-api:
     image: reddit-api-image:latest 
