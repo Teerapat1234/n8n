@@ -30,6 +30,11 @@ Run this to create, apply new volume
 docker volume create n8n_data
 docker run --rm -v n8n_data:/dest -v $(pwd):/backup alpine sh -c "tar -xvf /backup/volume_backup.tar -C /dest"
 
+----------------------------------once you set it up-------------------------------------------
+
+-running
+The webhooks are a massive headache since we're hosting it on a website + local port forwarding.
+So if you wanna call the MCP node you need to call it from local... run not n8ndrsomi.org run
 
 ## Resources
 
