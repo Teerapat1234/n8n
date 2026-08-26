@@ -1,6 +1,4 @@
-# n8n - Secure Workflow Automation for Technical Teams
-
-![n8n.io - Screenshot](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-screenshot-readme.png)
+# n8n - But with most nodes replaced with as much local dependencies as possible
 
 ## Quick Start
 
